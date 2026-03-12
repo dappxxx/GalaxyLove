@@ -5,11 +5,8 @@ import HeartModel from './HeartModel';
 import PhotoStars from './PhotoStar';
 import GalaxyBackground from './GalaxyBackground';
 
-// ===================================================
-// CUSTOMIZE — Edit this section
-// ===================================================
 
-const NAME = "Sayang"; // Your partner's name
+const NAME = "Sayang"; 
 
 const MESSAGES = [
   "Happy birthday to the most beautiful soul.",
@@ -87,8 +84,6 @@ const PLACEHOLDER_COLORS = [
 const photoList = FOTO_KENANGAN.length > 0
   ? FOTO_KENANGAN
   : PLACEHOLDER_COLORS.map(c => `__color__${c}`);
-
-// ===================================================
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
@@ -182,7 +177,6 @@ export default function GalaxyScene() {
         />
       </Canvas>
 
-      {/* ── TOP: Name & title ── */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -191,7 +185,6 @@ export default function GalaxyScene() {
         pointerEvents: 'none',
         animation: 'fadeDown 1.6s ease forwards',
       }}>
-        {/* Small label */}
         <p style={{
           fontFamily: "'Jost', sans-serif",
           fontWeight: 200,
@@ -204,7 +197,6 @@ export default function GalaxyScene() {
           To my beloved, Naura Tedja
         </p>
 
-        {/* Main name */}
         <h1 style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
@@ -219,7 +211,6 @@ export default function GalaxyScene() {
         </h1>
       </div>
 
-      {/* ── BOTTOM: Cycling message + hint ── */}
       <div style={{
         position: 'fixed', bottom: 0, left: 0, right: 0,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -228,7 +219,6 @@ export default function GalaxyScene() {
         pointerEvents: 'none',
       }}>
 
-        {/* Thin divider line */}
         <div style={{
           width: '28px',
           height: '1px',
@@ -236,7 +226,6 @@ export default function GalaxyScene() {
           marginBottom: '1rem',
         }} />
 
-        {/* Message */}
         <p key={msgIndex} style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 300,
@@ -253,7 +242,6 @@ export default function GalaxyScene() {
           {MESSAGES[msgIndex]}
         </p>
 
-        {/* Dot indicator */}
         <div style={{ display: 'flex', gap: '6px', marginBottom: showHint ? '1.2rem' : '0' }}>
           {MESSAGES.map((_, i) => (
             <div key={i} style={{
@@ -266,7 +254,6 @@ export default function GalaxyScene() {
           ))}
         </div>
 
-        {/* Hint */}
         {showHint && (
           <p style={{
             fontFamily: "'Jost', sans-serif",
@@ -283,7 +270,6 @@ export default function GalaxyScene() {
         )}
       </div>
 
-      {/* ── Music toggle ── */}
       <button
         className="music-btn"
         onClick={() => setMuted(!muted)}
@@ -311,7 +297,6 @@ export default function GalaxyScene() {
         {muted ? '♪' : '♫'}
       </button>
 
-      {/* ── Photo lightbox ── */}
       {selectedPhoto && (
         <div
           onClick={() => setSelectedPhoto(null)}
@@ -356,7 +341,6 @@ export default function GalaxyScene() {
               />
             )}
 
-            {/* Close */}
             <button
               className="close-btn"
               onClick={() => setSelectedPhoto(null)}
@@ -380,7 +364,6 @@ export default function GalaxyScene() {
             </button>
           </div>
 
-          {/* Dismiss hint */}
           <p style={{
             position: 'absolute', bottom: '2rem',
             fontFamily: "'Jost', sans-serif",
